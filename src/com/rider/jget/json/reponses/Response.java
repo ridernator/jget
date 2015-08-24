@@ -5,7 +5,7 @@ public class Response {
 
     private com.rider.jget.json.types.Error error;
 
-    public String getVersion() {
+    public String getResponseVersion() {
         return version;
     }
 

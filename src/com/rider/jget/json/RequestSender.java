@@ -1,10 +1,10 @@
-package com.rider.jget.operations;
+package com.rider.jget.json;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.rider.jget.GlobalSettings;
 import com.rider.jget.exceptions.JGetException;
-import com.rider.jget.json.JsonConverter;
-import com.rider.jget.json.JsonResponseHandler;
-import com.rider.jget.json.JsonrpcRequest;
+import com.rider.jget.json.reponses.Response;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -30,17 +30,20 @@ public class RequestSender {
 
     private static final Lock mutex = new ReentrantLock();
 
+    private static final Gson gson = new GsonBuilder().create();
+
+    private static final JsonResponseHandler responseHandler = new JsonResponseHandler();
+
     private RequestSender() {
         // Do nothing
     }
 
-    public static String sendRequest(final String operation,
-                                     final Map<String, Object> params) throws JGetException {
-        final JsonrpcRequest request = new JsonrpcRequest();
-        request.setMethod(operation);
-        request.setParams(params);
+    public static Response sendRequest(final String operation,
+                                       final Map<String, Object> params,
+                                       final Class classType) throws JGetException {
+        final Request request = new Request(operation, params);
 
-        String response = null;
+        Response response = null;
 
         try {
             mutex.lock();
@@ -50,14 +53,18 @@ public class RequestSender {
             post.setHeader(HTTP_HEADER_ACCEPT, APPLICATION_JSON);
             post.setHeader(HTTP_HEADER_ACCEPT_CHARSET, ENCODING_UTF8);
 
-            post.setEntity(new StringEntity(JsonConverter.convertToJson(request), ENCODING_UTF8));
+            post.setEntity(new StringEntity(gson.toJson(request), ENCODING_UTF8));
+            //System.out.println("Out : " + post);
 
             final HttpClient httpClient = new DefaultHttpClient();
 
             HttpConnectionParams.setConnectionTimeout(httpClient.getParams(), TIMEOUT);
             HttpConnectionParams.setSoTimeout(httpClient.getParams(), TIMEOUT);
 
-            response = httpClient.execute(post, new JsonResponseHandler());
+            //String responseString = httpClient.execute(post, responseHandler);
+            //System.out.println("In  : " + responseString);
+            //response = (Response) gson.fromJson(responseString, classType);
+            response = (Response)gson.fromJson(httpClient.execute(post, responseHandler), classType);
         } catch (final IOException exception) {
             throw new JGetException("Error sending request for operation \"" + operation + "\"", -1, "IOException");
         } finally {

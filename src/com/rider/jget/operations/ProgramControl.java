@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.rider.jget.operations;
 
+import com.rider.jget.json.RequestSender;
 import com.rider.jget.exceptions.JGetException;
-import com.rider.jget.json.JsonConverter;
+import com.rider.jget.json.operations.Reload;
+import com.rider.jget.json.operations.Shutdown;
+import com.rider.jget.json.operations.Version;
+import com.rider.jget.json.reponses.ReloadResponse;
+import com.rider.jget.json.reponses.ShutdownResponse;
 import com.rider.jget.json.reponses.VersionResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -20,13 +18,51 @@ public class ProgramControl {
         // Do nothing
     }
 
+    /**
+     * Request the version-string of the program.
+     *
+     * @return Version string
+     * @throws JGetException If there is any problem
+     */
     public static String version() throws JGetException {
-        final VersionResponse response = JsonConverter.convertFromJson(RequestSender.sendRequest("version", null), VersionResponse.class);
-        
+        final VersionResponse response = (VersionResponse) RequestSender.sendRequest(Version.OPERATION_NAME, null, VersionResponse.class);
+
         if (response.getError() != null) {
             throw new JGetException(response.getError());
         }
 
         return response.getVersion();
+    }
+
+    /**
+     * Shutdown the program.
+     *
+     * @return Always "True".
+     * @throws JGetException If there is any problem
+     */
+    public static boolean shutdown() throws JGetException {
+        final ShutdownResponse response = (ShutdownResponse) RequestSender.sendRequest(Shutdown.OPERATION_NAME, null, ShutdownResponse.class);
+
+        if (response.getError() != null) {
+            throw new JGetException(response.getError());
+        }
+
+        return response.isShutdown();
+    }
+
+    /**
+     * Stop all activities and reinitialize the program. This method must be called after changing of program options for them to have effect.
+     *
+     * @return Always "True".
+     * @throws JGetException If there is any problem
+     */
+    public static boolean reload() throws JGetException {
+        final ReloadResponse response = (ReloadResponse) RequestSender.sendRequest(Reload.OPERATION_NAME, null, ReloadResponse.class);
+
+        if (response.getError() != null) {
+            throw new JGetException(response.getError());
+        }
+
+        return response.isReloaded();
     }
 }

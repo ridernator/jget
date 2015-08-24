@@ -4,14 +4,14 @@ package com.rider.jget.json.reponses;
  *
  * @author rider
  */
-public class VersionResponse extends Response {
-    private String result;
+public class ShutdownResponse extends Response {
+    private boolean result;
     
-    private VersionResponse() {
+    private ShutdownResponse() {
         // Do nothing
     }
 
-    public String getVersion() {
+    public boolean isShutdown() {
         return result;
     }    
 }
