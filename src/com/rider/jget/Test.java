@@ -24,11 +24,11 @@ public class Test {
         GlobalSettings.setUsername("rider");
         GlobalSettings.setPassword("********");
 
-//        try {
-//            System.out.println("Version : " + ProgramControl.version());
-//        } catch (final JGetException exception) {
-//            System.err.println("Exception : \"" + exception.getMessage() + '\"');
-//        }
+        try {
+            System.out.println("Version : " + ProgramControl.version());
+        } catch (final JGetException exception) {
+            System.err.println("Exception : \"" + exception.getMessage() + '\"');
+        }
 //
 //        try {
 //            System.out.println(ProgramControl.shutdown() ? "Shutdown" : "Not shutdown");
@@ -56,13 +56,13 @@ public class Test {
 //            System.out.println(param.getName() + " => " + param.getValue());
 //        }
 //        
-        List<Parameter> params = new ArrayList<>();
-         params.add(new Parameter("Bob", "Builder"));
-                
-        try {
-            System.out.println(Configuration.saveConfig(params)? "Parameters saved" : "Parameters not saved");
-        } catch (final JGetException exception) {
-            System.err.println("Exception : \"" + exception.getMessage() + '\"');
-        }
+//        List<Parameter> params = new ArrayList<>();
+//         params.add(new Parameter("Bob", "Builder"));
+//                
+//        try {
+//            System.out.println(Configuration.saveConfig(params)? "Parameters saved" : "Parameters not saved");
+//        } catch (final JGetException exception) {
+//            System.err.println("Exception : \"" + exception.getMessage() + '\"');
+//        }
     }
 }
