@@ -10,8 +10,10 @@ import com.rider.jget.json.reponses.ShutdownResponse;
 import com.rider.jget.json.reponses.VersionResponse;
 
 /**
+ * Implementation of nzbget's Program Control methods
  *
- * @author rider
+ * @author Ciaron Rider
+ * @see <a href="https://github.com/nzbget/nzbget/wiki/API#program-control">here</a>
  */
 public class ProgramControl {
     private ProgramControl() {
@@ -23,6 +25,7 @@ public class ProgramControl {
      *
      * @return Version string
      * @throws JGetException If there is any problem
+     * @see <a href="https://github.com/nzbget/nzbget/wiki/API-Method-%22version%22">here</a>
      */
     public static String version() throws JGetException {
         final VersionResponse response = (VersionResponse) RequestSender.sendRequest(Version.OPERATION_NAME, null, VersionResponse.class);
@@ -39,6 +42,7 @@ public class ProgramControl {
      *
      * @return Always "True".
      * @throws JGetException If there is any problem
+     * @see <a href="https://github.com/nzbget/nzbget/wiki/API-Method-%22shutdown%22">here</a>
      */
     public static boolean shutdown() throws JGetException {
         final ShutdownResponse response = (ShutdownResponse) RequestSender.sendRequest(Shutdown.OPERATION_NAME, null, ShutdownResponse.class);
@@ -55,6 +59,7 @@ public class ProgramControl {
      *
      * @return Always "True".
      * @throws JGetException If there is any problem
+     * @see <a href="https://github.com/nzbget/nzbget/wiki/API-Method-%22reload%22">here</a>
      */
     public static boolean reload() throws JGetException {
         final ReloadResponse response = (ReloadResponse) RequestSender.sendRequest(Reload.OPERATION_NAME, null, ReloadResponse.class);

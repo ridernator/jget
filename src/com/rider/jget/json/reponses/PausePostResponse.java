@@ -4,14 +4,14 @@ package com.rider.jget.json.reponses;
  *
  * @author Ciaron Rider
  */
-public class ShutdownResponse extends Response {
+public class PausePostResponse extends Response {
     private boolean result;
     
-    private ShutdownResponse() {
+    private PausePostResponse() {
         // Do nothing
     }
 
-    public boolean isShutdown() {
+    public boolean isSuccess() {
         return result;
     }    
 }

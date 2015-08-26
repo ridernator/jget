@@ -2,7 +2,7 @@ package com.rider.jget.exceptions;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class JGetException extends Throwable {
     private final String message;

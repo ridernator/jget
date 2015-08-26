@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class LoadConfigResponse extends Response {
     private List<Parameter> result;

@@ -2,7 +2,7 @@ package com.rider.jget.json.reponses;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class VersionResponse extends Response {
     private String result;

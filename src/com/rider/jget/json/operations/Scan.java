@@ -2,7 +2,7 @@ package com.rider.jget.json.operations;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class Scan {
     public static final String OPERATION_NAME = "scan";

@@ -1,14 +1,12 @@
 package com.rider.jget.json;
 
-import java.util.Map;
-
 public class Request {
-    private String method;
+    private final String method;
 
-    private Map<String, Object> params;
+    private final Object params;
 
     public Request(final String methodName,
-                   final Map<String, Object> parameters) {
+                   final Object parameters) {
         method = methodName;
         params = parameters;
     }

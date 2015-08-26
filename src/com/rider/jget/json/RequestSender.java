@@ -39,9 +39,9 @@ public class RequestSender {
     }
 
     public static Response sendRequest(final String operation,
-                                       final Map<String, Object> params,
+                                       final Object parameters,
                                        final Class classType) throws JGetException {
-        final Request request = new Request(operation, params);
+        final Request request = new Request(operation, parameters);
 
         Response response = null;
 
@@ -54,17 +54,17 @@ public class RequestSender {
             post.setHeader(HTTP_HEADER_ACCEPT_CHARSET, ENCODING_UTF8);
 
             post.setEntity(new StringEntity(gson.toJson(request), ENCODING_UTF8));
-            //System.out.println("Out : " + post);
+            System.out.println("Out : " + gson.toJson(request));
 
             final HttpClient httpClient = new DefaultHttpClient();
 
             HttpConnectionParams.setConnectionTimeout(httpClient.getParams(), TIMEOUT);
             HttpConnectionParams.setSoTimeout(httpClient.getParams(), TIMEOUT);
 
-            //String responseString = httpClient.execute(post, responseHandler);
-            //System.out.println("In  : " + responseString);
-            //response = (Response) gson.fromJson(responseString, classType);
-            response = (Response)gson.fromJson(httpClient.execute(post, responseHandler), classType);
+            String responseString = httpClient.execute(post, responseHandler);
+            System.out.println("In  : " + responseString);
+            response = (Response) gson.fromJson(responseString, classType);
+            //response = (Response)gson.fromJson(httpClient.execute(post, responseHandler), classType);
         } catch (final IOException exception) {
             throw new JGetException("Error sending request for operation \"" + operation + "\"", -1, "IOException");
         } finally {

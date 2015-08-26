@@ -2,7 +2,7 @@ package com.rider.jget;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class GlobalSettings {
     private static String username = "username";
@@ -49,13 +49,13 @@ public class GlobalSettings {
         }
     }
 
-    public static void setPort(short port) {
+    public static void setPort(final short port) {
         synchronized (GlobalSettings.class) {
             GlobalSettings.port = port;
         }
     }
 
-    public static void setServer(String server) {
+    public static void setServer(final String server) {
         synchronized (GlobalSettings.class) {
             GlobalSettings.server = server;
         }

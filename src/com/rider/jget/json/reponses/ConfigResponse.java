@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class ConfigResponse extends Response {
     private List<Parameter> result;

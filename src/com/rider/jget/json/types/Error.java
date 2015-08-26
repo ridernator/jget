@@ -2,7 +2,7 @@ package com.rider.jget.json.types;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class Error {
     private String name;
@@ -21,5 +21,16 @@ public class Error {
 
     public String getName() {
         return name;
+    }
+    
+    @Override
+    public String toString(){
+        final StringBuilder builder = new StringBuilder();
+        
+        builder.append("Name    : ").append(getName()).append('\n');
+        builder.append("Code    : ").append(getCode()).append('\n');
+        builder.append("Message : ").append(getMessage()).append('\n');
+        
+        return builder.toString();
     }
 }

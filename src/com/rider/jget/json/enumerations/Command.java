@@ -1,8 +1,9 @@
 package com.rider.jget.json.enumerations;
 
 /**
+ * Command to send in the editQueue operation
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public enum Command {
     /**
@@ -211,7 +212,7 @@ public enum Command {
      * v15.0 Mark history item as success. See RSS.
      */
     HistoryMarkSuccess("HistoryMarkSuccess");
-    
+
     /**
      * The string version of this command
      */
@@ -219,14 +220,16 @@ public enum Command {
 
     /**
      * Private constructor for this class. Used to set the string value of the command
+     *
      * @param stringValue The string value to set
      */
     private Command(final String stringValue) {
         this.stringValue = stringValue;
     }
-    
+
     /**
      * Gets the string value for this command. Used in the json request
+     *
      * @return The string value
      */
     public String getStringValue() {

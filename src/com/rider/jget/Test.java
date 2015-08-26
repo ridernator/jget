@@ -1,28 +1,28 @@
-
 package com.rider.jget;
 
 import com.rider.jget.exceptions.JGetException;
 import com.rider.jget.json.operations.Config;
 import com.rider.jget.json.types.Parameter;
 import com.rider.jget.operations.Configuration;
+import com.rider.jget.operations.PauseAndSpeedLimit;
 import com.rider.jget.operations.ProgramControl;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class Test {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(final String[] args) throws JGetException {
+    public static void main(final String[] args) throws JGetException, InterruptedException {
         GlobalSettings.setServer("alfie");
         GlobalSettings.setPort((short) 6789);
         GlobalSettings.setUsername("rider");
-        GlobalSettings.setPassword("********");
+        GlobalSettings.setPassword("39FqZczm");
 
         try {
             System.out.println("Version : " + ProgramControl.version());
@@ -56,13 +56,27 @@ public class Test {
 //            System.out.println(param.getName() + " => " + param.getValue());
 //        }
 //        
-//        List<Parameter> params = new ArrayList<>();
-//         params.add(new Parameter("Bob", "Builder"));
-//                
-//        try {
-//            System.out.println(Configuration.saveConfig(params)? "Parameters saved" : "Parameters not saved");
-//        } catch (final JGetException exception) {
-//            System.err.println("Exception : \"" + exception.getMessage() + '\"');
-//        }
+        List<Parameter> params = new ArrayList<>();
+         params.add(new Parameter("Bob", "Builder"));
+                
+        try {
+            System.out.println(Configuration.saveConfig(params)? "Parameters saved" : "Parameters not saved");
+        } catch (final JGetException exception) {
+            System.err.println("Exception : \"" + exception.getMessage() + '\"');
+        }
+
+        try {
+            System.out.println(PauseAndSpeedLimit.rate(50) ? "Rate set to 50" : "Rate setting didn't work");
+        } catch (final JGetException exception) {
+            System.err.println("Exception : \"" + exception.getMessage() + '\"');
+        }
+        
+        Thread.sleep(5000);
+
+        try {
+            System.out.println(PauseAndSpeedLimit.rate(0) ? "Rate set to unlimited" : "Rate setting didn't work");
+        } catch (final JGetException exception) {
+            System.err.println("Exception : \"" + exception.getMessage() + '\"');
+        }
     }
 }

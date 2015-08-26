@@ -2,7 +2,7 @@ package com.rider.jget.json.operations;
 
 /**
  *
- * @author rider
+ * @author Ciaron Rider
  */
 public class ResetServerVolumes {
     public static final String OPERATION_NAME = "resetservervolume";
