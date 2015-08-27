@@ -1,7 +1,7 @@
 package com.rider.jget.operations;
 
-import com.rider.jget.json.RequestSender;
 import com.rider.jget.exceptions.JGetException;
+import com.rider.jget.json.RequestSender;
 import com.rider.jget.json.operations.Reload;
 import com.rider.jget.json.operations.Shutdown;
 import com.rider.jget.json.operations.Version;

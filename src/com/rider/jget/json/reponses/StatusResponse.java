@@ -13,6 +13,10 @@ public class StatusResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public Status getStatus() {
         return result;
     }    

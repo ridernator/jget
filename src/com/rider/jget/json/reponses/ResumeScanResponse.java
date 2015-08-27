@@ -11,6 +11,10 @@ public class ResumeScanResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSuccess() {
         return result;
     }    

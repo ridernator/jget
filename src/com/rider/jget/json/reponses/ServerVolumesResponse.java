@@ -1,6 +1,6 @@
 package com.rider.jget.json.reponses;
 
-import com.rider.jget.json.types.ConfigTemplate;
+import com.rider.jget.json.types.ServerVolumes;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +8,10 @@ import java.util.List;
  *
  * @author Ciaron Rider
  */
-public class ConfigTemplatesResponse extends Response {
-    private List<ConfigTemplate> result;
+public class ServerVolumesResponse extends Response {
+    private List<ServerVolumes> result;
     
-    private ConfigTemplatesResponse() {
+    private ServerVolumesResponse() {
         // Do nothing
     }
 
@@ -19,7 +19,7 @@ public class ConfigTemplatesResponse extends Response {
      *
      * @return
      */
-    public List<ConfigTemplate> getConfigTemplates() {
+    public List<ServerVolumes> getServerVolumes() {
         if (result == null) {
             result = new ArrayList<>();
         }

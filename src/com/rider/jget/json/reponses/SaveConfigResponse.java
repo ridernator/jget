@@ -11,6 +11,10 @@ public class SaveConfigResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSaved() {
         return result;
     }    

@@ -4,10 +4,10 @@ package com.rider.jget.json.reponses;
  *
  * @author Ciaron Rider
  */
-public class VersionResponse extends Response {
-    private String result;
+public class ResetServerVolumeResponse extends Response {
+    private boolean result;
     
-    private VersionResponse() {
+    private ResetServerVolumeResponse() {
         // Do nothing
     }
 
@@ -15,7 +15,7 @@ public class VersionResponse extends Response {
      *
      * @return
      */
-    public String getVersion() {
+    public boolean isSuccess() {
         return result;
     }    
 }

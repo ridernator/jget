@@ -11,6 +11,10 @@ public class ReloadResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isReloaded() {
         return result;
     }    

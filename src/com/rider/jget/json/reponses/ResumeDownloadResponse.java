@@ -11,6 +11,10 @@ public class ResumeDownloadResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSuccess() {
         return result;
     }    

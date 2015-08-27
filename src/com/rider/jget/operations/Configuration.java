@@ -1,7 +1,7 @@
 package com.rider.jget.operations;
 
-import com.rider.jget.json.RequestSender;
 import com.rider.jget.exceptions.JGetException;
+import com.rider.jget.json.RequestSender;
 import com.rider.jget.json.operations.Config;
 import com.rider.jget.json.operations.ConfigTemplates;
 import com.rider.jget.json.operations.LoadConfig;
@@ -12,9 +12,7 @@ import com.rider.jget.json.reponses.LoadConfigResponse;
 import com.rider.jget.json.reponses.SaveConfigResponse;
 import com.rider.jget.json.types.ConfigTemplate;
 import com.rider.jget.json.types.Parameter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Implementation of nzbget's Configuration methods

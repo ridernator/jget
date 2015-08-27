@@ -43,30 +43,58 @@ public class ConfigTemplate {
      */
     private String Template;
 
+    /**
+     *
+     * @return
+     */
     public String getDisplayName() {
         return DisplayName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return Name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTemplate() {
         return Template;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isPostScript() {
         return PostScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isQueueScript() {
         return QueueScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isScanScript() {
         return ScanScript;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSchedulerScript() {
         return SchedulerScript;
     }

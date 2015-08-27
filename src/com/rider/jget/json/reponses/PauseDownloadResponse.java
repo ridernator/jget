@@ -11,6 +11,10 @@ public class PauseDownloadResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSuccess() {
         return result;
     }    

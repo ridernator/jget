@@ -11,6 +11,10 @@ public class ShutdownResponse extends Response {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isShutdown() {
         return result;
     }    

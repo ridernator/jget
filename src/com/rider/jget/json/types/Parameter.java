@@ -17,28 +17,52 @@ public class Parameter {
      */
     private String Value;
 
+    /**
+     *
+     * @param name
+     * @param value
+     */
     public Parameter(final String name,
                      final String value) {
         Name = name;
         Value = value;
     }
 
+    /**
+     *
+     */
     public Parameter() {
         // Do nothing
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return Name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getValue() {
         return Value;
     }
 
+    /**
+     *
+     * @param Name
+     */
     public void setName(final String Name) {
         this.Name = Name;
     }
 
+    /**
+     *
+     * @param Value
+     */
     public void setValue(final String Value) {
         this.Value = Value;
     }
